@@ -8,7 +8,7 @@ const buildTheMachine = () => {
   smash.getCompleteMachine()
     .then((positions) => {
       let domString = '<h2>VENDING MACHINE</h2>';
-      domString += '<div id="snack-section>';
+      domString += '<div id="snack-section" class="container d-flex flex-wrap">';
       positions.forEach((position) => {
         domString += snackComponent.makeASnack(position);
       });

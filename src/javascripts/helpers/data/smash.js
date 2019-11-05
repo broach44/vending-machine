@@ -35,4 +35,30 @@ const getCompleteMachine = () => new Promise((resolve, reject) => {
 // 4. use uid of snackPositions/positions to get available snacks for that machine - DONE
 // 5. SMASH EM' - return an array of positions (in order A1, A2, A3, B1....) so positions should have position.snack if a snack exists at that position.
 
-export default { getCompleteMachine };
+const getSnacksWithPositions = (uid) => new Promise((resolve, reject) => {
+  machineData.getMachine()
+    .then((singleMachine) => positionData.getAllPositionsByMachineId(singleMachine.id))
+    .then((positions) => {
+      snackPositionData.getAllSnackPositionsByMachineId(positions[0].machineId)
+        .then((snackPositions) => {
+          snackData.getSnacksByUid(uid).then((snacks) => {
+            const newSnacks = [];
+            snacks.forEach((snack) => {
+              const newSnack = { ...snack };
+              const getSnackPosition = snackPositions.find((x) => x.snackId === newSnack.id);
+              if (getSnackPosition) {
+                const getPosition = positions.find((x) => x.id === getSnackPosition.positionId);
+                newSnack.position = getPosition;
+              } else {
+                newSnack.position = {};
+              }
+              newSnacks.push(newSnack);
+            });
+            resolve(newSnacks);
+          });
+        });
+    })
+    .catch((error) => reject(error));
+});
+
+export default { getCompleteMachine, getSnacksWithPositions };

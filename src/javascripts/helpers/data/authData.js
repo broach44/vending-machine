@@ -17,6 +17,7 @@ const checkLoginStatus = () => {
       logoutNav.removeClass('hide');
       authDiv.addClass('hide');
       stocker.buildTheStocker(user.uid);
+      console.log(user);
     } else {
       // nobody logged in SHOW auth component
       stockDiv.addClass('hide');

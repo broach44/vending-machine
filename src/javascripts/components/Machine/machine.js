@@ -8,7 +8,7 @@ const buildTheMachine = () => {
   smash.getCompleteMachine()
     .then((positions) => {
       let domString = '<h2>VENDING MACHINE</h2>';
-      domString += '<div id="snack-section class="d-flex flex-wrap">';
+      domString += '<div id="snack-section>';
       positions.forEach((position) => {
         domString += snackComponent.makeASnack(position);
       });
@@ -18,7 +18,7 @@ const buildTheMachine = () => {
       //   console.log('positions', x.position);
       // });
       // domString += positions[0].snack.name;
-      utilities.printToDom('stock', domString);
+      utilities.printToDom('machine', domString);
     })
     .catch((error) => console.error(error));
 };

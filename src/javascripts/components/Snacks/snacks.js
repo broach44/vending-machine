@@ -1,10 +1,10 @@
 import './snacks.scss';
 
 const makeASnack = (position) => {
-  let domString = '';
+  let domString = '<div class="container d-flex flex-wrap';
   if (position.snack.name) {
     domString += `
-      <div class="card" style="width: 18rem;">
+      <div class="card col-3" style="width: 18rem;">
         <img src=${position.snack.imageUrl} class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${position.snack.name}</h5>
@@ -15,7 +15,7 @@ const makeASnack = (position) => {
   `;
   } else {
     domString += `
-    <div class="card" style="width: 18rem;">
+    <div class="card col-3" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">EMPTY</h5>
       <p class="card-text">${position.position}</p>
@@ -23,6 +23,7 @@ const makeASnack = (position) => {
   </div>
     `;
   }
+  domString += '</div>';
   return domString;
 };
 

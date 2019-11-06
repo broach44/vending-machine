@@ -76,7 +76,7 @@ const quickStock = (e) => {
       // eslint-disable-next-line no-use-before-define
       buildTheStocker(uid);
       // eslint-disable-next-line no-undef
-      buildTheMachine();
+      machine.buildTheMachine();
     })
     .catch((error) => console.error(error));
 };

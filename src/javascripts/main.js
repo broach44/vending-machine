@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import 'bootstrap';
 
 import auth from './components/Auth/auth';
 import authData from './helpers/data/authData';
@@ -7,7 +8,6 @@ import machine from './components/Machine/machine';
 
 import apiKeys from './helpers/apiKeys.json';
 
-import 'bootstrap';
 import '../styles/main.scss';
 
 const init = () => {

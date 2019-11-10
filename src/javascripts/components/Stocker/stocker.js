@@ -18,7 +18,6 @@ const deleteFromMachine = (e) => {
     // eslint-disable-next-line no-use-before-define
       buildTheStocker(uid);
       machine.buildTheMachine();
-      console.log('it worked');
     })
     .catch((error) => console.error(error));
 };
